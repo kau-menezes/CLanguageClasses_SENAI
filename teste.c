@@ -1,21 +1,7 @@
-#include <stdio.h>
-
-int main ()
+int main()
 {
-    char *array[3] = {"Kau", "Mumu"};
+    int row = 8 / 3;
+    int column = (8 % 3);
 
-    for ( int i = 0; i < 3; i++ )
-        printf("String %d : %s\n", i+1, array[i] );
-
-    printf("\n");
-
-    char **ptr = array;
-
-    ptr[2] = "Nico";
-
-    for ( int i = 0; i < 3; i++ )
-        printf("String %d : %s\n", i+1, ptr[i] );
-
-
-   
+    printf("%d, %d", row, column);
 }

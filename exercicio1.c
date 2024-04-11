@@ -1,19 +1,70 @@
 #include <stdio.h>
 
-void main ()
+int main ()
 {
-    int array[5];
+    char students[5][10] = {"Sampaio", "Cristian", "Matias", "Wallace", "Helena"};
+    int grades[5][3] = {{ 3, 4, 5 }, 
+                        { 6, 7, 8 }, 
+                        { 10, 8, 7}, 
+                        { 2, 3, 8 }, 
+                        {9, 10, 10}};
 
-    array[0] = 10;
-    array[1] = 20;
-    array[2] = 30;
-    array[3] = 40;
-    array[4] = 50;
+    int choice = 0;
 
-    for (int i = 0; i < 5; i++)
+    printf("De qual aluno deseja consultar as notas?\n0 - Sampaio\n1 - Cristian\n2 - Matias\n3 - Wallace\n4 - Helena\nR: ");
+    scanf("%d", &choice);
+
+    switch (choice)
     {
-        printf("%d\n", array[i]);
-    }
+    case 1:
+        printf("\nAluno(a): %s\n", students[choice]);
 
+        for (int i = 0; i < 3; i++)
+        {
+            printf("\nNota %d: %d\n", i+1, grades[choice][i]);
+        }
+
+        break;
+    
+    case 2:
+        printf("\nAluno(a): %s", students[choice]);
+
+        for (int i = 0; i < 3; i++)
+        {
+            printf("\nNota %d: %d\n", i+1, grades[choice][i]);
+        }
+            break;
+
+    case 3:
+    printf("\nAluno(a): %s\n", students[choice]);
+
+        for (int i = 0; i < 3; i++)
+        {
+            printf("\nNota %d: %d\n", i+1, grades[choice][i]);
+        }
+            break;
+
+    case 4:
+        printf("\nAluno(a): %s", students[choice]);
+
+        for (int i = 0; i < 3; i++)
+        {
+            printf("\nNota %d: %d\n", i+1, grades[choice][i]);
+        }
+            break;
+
+    case 5:    
+        printf("\nAluno(a): %s", students[choice]);
+
+        for (int i = 0; i < 3; i++)
+        {
+            printf("\nNota %d: %d\n", i+1, grades[choice][i]);
+        }
+            break;
+
+    default:
+    printf("aff");
+        break;
+    }
 
 }
