@@ -4,23 +4,24 @@
 
 #include <stdio.h>
 
-int showMatrix(int ** array_p)
+int showMatrix(int array_p[][3])
 {
     for (int i = 0; i < 3; i++)
     {
+        printf("\n");
         for (int j = 0; j < 3; j++)
         {
-            if (array_p[i][j] == 0)
+            if (array_p[i][j] == 3)
             {
-                printf("   ");
+                printf(" - ");
             }
             else if (array_p[i][j] == 1)
             {
-                printf(" O ");
+                printf(" X ");
             }
             else
             {
-                printf(" x ");
+                printf(" O ");
             }
         }
     }
@@ -29,15 +30,15 @@ int showMatrix(int ** array_p)
 
 }
 
-int changeMatrix(int ** array_p, int user_spot, int character)
+int changeMatrix(int array_p[][3], int user_spot, int character)
 {
     
-    int row = user_spot / 2;
-    int column = (3 * row) + user_spot % 3;
+    int row = user_spot / 3;
+    int column = user_spot % 3;
 
-    if (array_p[row][column] != 0)
+    if (array_p[row][column] != 3)
     {
-        return 1;
+        printf("\nPosição já escolhida! Vez passada ao oponente.\n");
     } 
     else
     {
