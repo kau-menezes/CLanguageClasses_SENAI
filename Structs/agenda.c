@@ -150,7 +150,6 @@ int main ()
 
     }
 
-
     fprintf(file, "\nDia %d de %s do ano %d", day, month_c, year);
     fprintf(file, "\nÀs %d horas e %d minutos", hour, minute);
     fprintf(file, "\nDescrição: %s", description);
