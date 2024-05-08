@@ -31,15 +31,17 @@ int form_students(Student* array, char* name, char* course, char* matriculation,
 
 int print_report_card(FILE * file, int index, Student array[], float mean[])
 {
+    index--;
+
     fprintf(file, "=== BOLETIM DO(A) %s ===\n", array[index].name);
     fprintf(file, "\nNome: %s\n", array[index].name);
     fprintf(file, "\nCurso: %s\n", array[index].course);
     fprintf(file, "\nMatrícula: %s\n", array[index].matriculation);
     fprintf(file, "\nMÉDIA FINAL: %f", mean[index]);
     if(mean[index] >= 7) {
-        fprintf(file, "RESULTADO: APROVADO(A)!");
+        fprintf(file, "\nRESULTADO: APROVADO(A)!");
     } else {
-        fprintf(file, "RESULTADO: REPROVADO(A)!");
+        fprintf(file, "\nRESULTADO: REPROVADO(A)!");
     }
 
 }
