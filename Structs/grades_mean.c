@@ -7,8 +7,8 @@ typedef struct {
     char name[20];
     char course[20];
     char matriculation[20];
-    int grade_1;
-    int grade_2;
+    float grade_1;
+    float grade_2;
 
 } Student;
 
@@ -29,18 +29,35 @@ int form_students(Student* array, char* name, char* course, char* matriculation,
 
 }
 
-int mean() {}
+int print_report_card(FILE * file, int index, Student array[], float mean[])
+{
+    fprintf(file, "=== BOLETIM DO(A) %s ===\n", array[index].name);
+    fprintf(file, "\nNome: %s\n", array[index].name);
+    fprintf(file, "\nCurso: %s\n", array[index].course);
+    fprintf(file, "\nMatrícula: %s\n", array[index].matriculation);
+    fprintf(file, "\nMÉDIA FINAL: %f", mean[index]);
+    if(mean[index] >= 7) {
+        fprintf(file, "RESULTADO: APROVADO(A)!");
+    } else {
+        fprintf(file, "RESULTADO: REPROVADO(A)!");
+    }
+
+}
 
 int main() {
-    Student array[10];
+    Student array[3];
     Student student;
 
     char name[20], course[20], matriculation[20];
-    int grade1, grade2;
+    float grade1, grade2;
+    int choice;
+    float mean[10];
 
-    for (int i = 0; i < 10; i++) {
+    FILE * file = fopen("report_card.txt", "w");
 
-        printf("\nDigite o nome do %do aluno(a): ", i +1);
+    for (int i = 0; i < 3; i++) {
+
+        printf("\nDigite o nome do %do aluno(a): ", i + 1);
         scanf("%s", name);
 
         printf("\nDigite o curso do %do aluno(a): ", i + 1);
@@ -50,14 +67,29 @@ int main() {
         scanf("%s", matriculation);
 
         printf("\nDigite a primeira nota do %do aluno(a): ", i + 1);
-        scanf("%d", &grade1);
+        scanf("%f", &grade1);
 
         printf("\nDigite a segunda nota do %do aluno(a): ", i + 1);
-        scanf("%d", &grade2);
+        scanf("%f", &grade2);
 
         form_students(array, name, course, matriculation, grade1, grade2, i);
+
+        mean[i] = ((grade1 * 1) + (grade2 * 2)) / 3; 
     }
 
+    while (choice < 0 || choice > 10) 
+    {
+        printf("\nVocê deseja acessar o boletim de qual aluno? Digite de 1 a 10.\nR: ");
+        scanf(" %d", &choice);
 
+        if (choice < 0 || choice > 10)
+        {
+            printf("\nValor inválido! :(");
+        }
+    }
+
+    print_report_card(file, choice, array, mean);
+
+    fclose(file);
 
 }
