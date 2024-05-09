@@ -23,25 +23,22 @@ Contact form_contact(char name[20], char email[20], char adress[20], char phone[
 
 }
 
-int alphaSort(Contact *array, Contact contact, int size) {
+int get_push_index(Contact *array, Contact contact, int size) {
     
-    // verifica se não há item no vetor
     if (array == NULL) {
         return 0;
     }
 
-    // percorre a lista de contatos
     for (int i = 0; i < size; i++)
     {
 
-        // verifica 
         if (tolower(contact.name[0]) >= tolower(array[i].name[0])) {
             return i;
         } 
 
-        return size;
     }
-
+        return size;
+        
 }
 
 void push (Contact contact, Contact *array, int* size, int index) {

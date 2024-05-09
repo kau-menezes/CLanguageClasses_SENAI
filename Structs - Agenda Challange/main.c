@@ -42,7 +42,7 @@ int main() {
 
         Contact contact = form_contact(name, email, adress, phone, birth_date);
 
-        int index = alphaSort(contact_list, contact, &size);
+        int index = get_push_index(contact_list, contact, &size);
 
         push(contact, contact_list, size, index);
         
