@@ -5,8 +5,12 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include <struct.h>
+#include "struct.h"
+#include "node.h"
+#include "node_list.h"
 
-int add_contact (Contact* array, char* name, char* email, char* adress, char* phone, char* birth_date, int i)
 
+int add_contact (Contact contact) {
+
+}
 #endif 
