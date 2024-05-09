@@ -11,6 +11,7 @@ typedef struct {
     char adress[20];
     char phone[10];
     char birth_date[11];
+    
 } Contact;
 
 #endif
