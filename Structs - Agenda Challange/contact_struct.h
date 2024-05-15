@@ -1,5 +1,5 @@
-#ifndef STRUCT_CONTACT
-#define STRUCT_CONTACT
+#ifndef CONTACT_STRUCT
+#define CONTACT_STRUCT
 
 #include <stdio.h>
 #include <stdlib.h>

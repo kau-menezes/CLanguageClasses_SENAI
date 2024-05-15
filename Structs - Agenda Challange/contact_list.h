@@ -5,9 +5,10 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
-#include "struct.h"
+#include "contact_struct.h"
 
 typedef struct {
+    
     Contact * array;
     int quantity;
     int capacity;
