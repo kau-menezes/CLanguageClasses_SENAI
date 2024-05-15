@@ -26,7 +26,7 @@ int main() {
     case 1:
         
         printf("\nType your contact name: ");
-        scanf("%[^\n]s", name);
+        scanf("%s", name);
 
         printf("\nType their phone: ");
         scanf("%s", phone);
@@ -42,9 +42,19 @@ int main() {
 
         Contact contact = form_contact(name, email, adress, phone, birth_date);
 
+        printf("\ndeu boa 1");
+
         int index = get_push_index(contact_list, contact, &size);
 
-        push(contact, contact_list, size, index);
+        printf("\n%d", index);
+
+        printf("\ndeu boa 2");
+
+        push(contact, contact_list, &size, index);
+
+        printf("\ndeu boa 3");
+
+        printf("%s", contact.name);
         
         break;
     

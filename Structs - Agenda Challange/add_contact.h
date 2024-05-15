@@ -23,9 +23,10 @@ Contact form_contact(char name[20], char email[20], char adress[20], char phone[
 
 }
 
-int get_push_index(Contact *array, Contact contact, int size) {
+int get_push_index(Contact *array, Contact contact, int *size) {
     
-    if (array == NULL) {
+    printf("\n tamanho %d", *size);
+    if (*size == 0) {
         return 0;
     }
 
@@ -43,14 +44,27 @@ int get_push_index(Contact *array, Contact contact, int size) {
 
 void push (Contact contact, Contact *array, int* size, int index) {
 
-    array = (Contact*) realloc(array, (sizeof(Contact))*(*size + 1));
+    Contact * aux;
+    printf("\n antes do realloc");
+    printf("\nsizeof array %d", sizeof(array));
+
+    printf("\n%d %d %d", sizeof(Contact), *size + 1, (sizeof(Contact))*(*size + 1));
+
+    aux = (Contact*) realloc(array, sizeof(Contact)*(*size + 1));
+
+    printf("\nrealloc");
+    printf("\nsizeof array %d", sizeof(array));
 
     for (int i = *size; i > index; i--)
     {
         array[i] = array[i - 1]; 
+        printf("\ndeu boa no loop");
+
     }
+    printf("\ndeu boa 3");
     
     array[index] = contact;
+    printf("\ndeu boa 4");
 
     *size++;
 }
