@@ -33,15 +33,52 @@ int get_push_index(contactList * contact_list, Contact contact) {
         return 0;
     }
 
-    for (int i = 0; i < contact_list->quantity; i++)
-    {
-        if (tolower(contact.name[0]) >= tolower(contact_list->array[i].name[0])) {
-            return i;
-        } 
+    int i = contact_list->quantity;
+
+    while (strcmp(contact.name, contact_list->array[i].name) < 0 && i > 0) {
+
+        i--;
+    }
+
+    return i;
+        
+}
+
+void add_sort(contactList * contact_list, Contact new_contact) {
+
+    
+    if (!contact_list->array) {
+
+        contact_list->capacity++;
+
+        contact_list = (Contact*) malloc(contact_list->capacity * sizeof(Contact));
+
+        contact_list->array[0] = new_contact;
+        contact_list->quantity++;
+
+        return;
+    }
+
+    
+
+    if (contact_list->capacity == contact_list->quantity) {
+        
+        contact_list->capacity *= 2;
+        realloc(contact_list->array, contact_list->capacity * sizeof(Contact));
 
     }
-        return contact_list->quantity;
-        
+
+    int index = contact_list->quantity;
+    printf("\n%d", index);
+
+    while (index > 0 && strcmp(new_contact.name, contact_list->array[index].name) < 0) {
+        contact_list->array[index] = contact_list->array[index - 1];
+        index--;
+    }
+
+    contact_list->array[index] = new_contact;
+    contact_list->quantity++;
+
 }
         
 void push (contactList * contact_list, Contact contact, int index) {
@@ -57,20 +94,21 @@ void push (contactList * contact_list, Contact contact, int index) {
         return;
     }
 
-    if (contact_list->capacity == contact_list->quantity) {
+    if (contact_list->capacity == contact_list->quantity + 1) {
         
         contact_list->capacity *= 2;
         contact_list->array = (Contact*) realloc(contact_list->array, contact_list->capacity * sizeof(Contact));
 
     }
 
-    for(int i = contact_list->capacity; i > index; i--){
+    for(int i = contact_list->quantity - 1; i > index + 1; i--){
 
         contact_list->array[i] = contact_list->array[i - 1];
 
     };
 
     contact_list->array[index] = contact;
+    contact_list->quantity++;
 
 
 }

@@ -14,14 +14,26 @@ typedef struct {
     
 } Contact;
 
-Contact construct_contact() {
+// Contact construct_contact(char* name, char* email, char* adress, char* phone, char* birthdate) {
+//     Contact new_contact;
+
+//     strcpy(new_contact.name, name);
+//     // strcpy(new_contact.email, email);
+//     // strcpy(new_contact.adress, adress);
+//     // strcpy(new_contact.phone, phone);
+//     // strcpy(new_contact.birth_date, birthdate);
+
+//     return new_contact;
+// }
+
+Contact construct_contact(char name[]) {
     Contact new_contact;
 
-    new_contact.name;
-    // new_contact.email;
-    // new_contact.adress;
-    // new_contact.phone;
-    // new_contact.birth_date;
+    strcpy(new_contact.name, name);
+    // strcpy(new_contact.email, email);
+    // strcpy(new_contact.adress, adress);
+    // strcpy(new_contact.phone, phone);
+    // strcpy(new_contact.birth_date, birthdate);
 
     return new_contact;
 }

@@ -21,31 +21,33 @@ int main() {
     {
     case 1:
         
-        printf("\nType your contact name: ");
-        scanf("%s", name);
+        for (int i = 0; i < 6; i++) {
 
-        // printf("\nType their phone: ");
-        // scanf("%s", phone);
-        
-        // printf("\nType their e-mail: ");
-        // scanf("%s", email);
+            printf("\nType your contact name: ");
+            scanf("%s", name);
 
-        // printf("\nType their adress: ");
-        // scanf("%s", adress);
+            // printf("\nType their phone: ");
+            // scanf("%s", phone);
+            
+            // printf("\nType their e-mail: ");
+            // scanf("%s", email);
 
-        // printf("\nType their birth date on the format DD/MM/YYYY: ");
-        // scanf("%s", birth_date);
+            // printf("\nType their adress: ");
+            // scanf("%s", adress);
 
-        // Contact contact = construct_contact(name, email, adress, phone, birth_date);
-        Contact contact = construct_contact(name);
+            // printf("\nType their birth date on the format DD/MM/YYYY: ");
+            // scanf("%s", birth_date);
 
-        int index = get_push_index(&contact_list, contact);
+            // Contact contact = construct_contact(name, email, adress, phone, birth_date);
+            Contact contact = construct_contact(name);
+            
+            add_sort(&contact_list, contact);
+            printf("%s", contact.name);
+        }
 
-        printf("\n%d", index);
-
-        push(&contact_list, contact, index);
-
-        printf("%s", contact.name);
+        for (int i = 0; i < 6; i++) {
+            printf("\n%s", contact_list.array[i].name);
+        }
         
         break;
     
