@@ -7,10 +7,10 @@
 
 typedef struct {
     char name[20];
-    char email[20];
-    char adress[20];
-    char phone[10];
-    char birth_date[20];
+    // char email[20];
+    // char adress[20];
+    // char phone[10];
+    // char birth_date[20];
     
 } Contact;
 
@@ -18,10 +18,10 @@ Contact construct_contact() {
     Contact new_contact;
 
     new_contact.name;
-    new_contact.email;
-    new_contact.adress;
-    new_contact.phone;
-    new_contact.birth_date;
+    // new_contact.email;
+    // new_contact.adress;
+    // new_contact.phone;
+    // new_contact.birth_date;
 
     return new_contact;
 }

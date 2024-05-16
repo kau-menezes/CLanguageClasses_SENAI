@@ -2,10 +2,12 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "struct.h"
-#include "add_contact.h"
+#include "contact_struct.h"
+#include "contact_list.h"
 
 int main() {
+
+    contactList contact_list = construct_contact_list();
 
     printf("=== WELCOME TO YOUR CONTACT LIST ===\n");
     char name[20], email[20], adress[20], phone[10], birth_date[11];
@@ -22,31 +24,26 @@ int main() {
         printf("\nType your contact name: ");
         scanf("%s", name);
 
-        printf("\nType their phone: ");
-        scanf("%s", phone);
+        // printf("\nType their phone: ");
+        // scanf("%s", phone);
         
-        printf("\nType their e-mail: ");
-        scanf("%s", email);
+        // printf("\nType their e-mail: ");
+        // scanf("%s", email);
 
-        printf("\nType their adress: ");
-        scanf("%s", adress);
+        // printf("\nType their adress: ");
+        // scanf("%s", adress);
 
-        printf("\nType their birth date on the format DD/MM/YYYY: ");
-        scanf("%s", birth_date);
+        // printf("\nType their birth date on the format DD/MM/YYYY: ");
+        // scanf("%s", birth_date);
 
-        Contact contact = form_contact(name, email, adress, phone, birth_date);
+        // Contact contact = construct_contact(name, email, adress, phone, birth_date);
+        Contact contact = construct_contact(name);
 
-        printf("\ndeu boa 1");
-
-        int index = get_push_index(contact_list, contact, &size);
+        int index = get_push_index(&contact_list, contact);
 
         printf("\n%d", index);
 
-        printf("\ndeu boa 2");
-
-        push(contact, contact_list, &size, index);
-
-        printf("\ndeu boa 3");
+        push(&contact_list, contact, index);
 
         printf("%s", contact.name);
         

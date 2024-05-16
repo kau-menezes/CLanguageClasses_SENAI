@@ -53,6 +53,7 @@ void push (contactList * contact_list, Contact contact, int index) {
 
         contact_list->array[contact_list->quantity++] = contact;
 
+
         return;
     }
 
@@ -70,6 +71,7 @@ void push (contactList * contact_list, Contact contact, int index) {
     };
 
     contact_list->array[index] = contact;
+
 
 }
 
