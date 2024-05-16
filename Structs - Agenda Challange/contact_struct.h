@@ -6,34 +6,20 @@
 #include <string.h>
 
 typedef struct {
-    char name[20];
-    // char email[20];
-    // char adress[20];
-    // char phone[10];
-    // char birth_date[20];
+    char name[15];
+    char phone[10];
+    char adress[20];
     
 } Contact;
 
-// Contact construct_contact(char* name, char* email, char* adress, char* phone, char* birthdate) {
-//     Contact new_contact;
 
-//     strcpy(new_contact.name, name);
-//     // strcpy(new_contact.email, email);
-//     // strcpy(new_contact.adress, adress);
-//     // strcpy(new_contact.phone, phone);
-//     // strcpy(new_contact.birth_date, birthdate);
+Contact construct_contact(char name[], char phone[], char adress[]) {
 
-//     return new_contact;
-// }
-
-Contact construct_contact(char name[]) {
     Contact new_contact;
 
     strcpy(new_contact.name, name);
-    // strcpy(new_contact.email, email);
-    // strcpy(new_contact.adress, adress);
-    // strcpy(new_contact.phone, phone);
-    // strcpy(new_contact.birth_date, birthdate);
+    strcpy(new_contact.phone, phone);
+    strcpy(new_contact.adress, adress);
 
     return new_contact;
 }
