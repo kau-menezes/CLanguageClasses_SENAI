@@ -35,7 +35,7 @@ int get_push_index(contactList * contact_list, Contact contact) {
 
     int i = contact_list->quantity;
 
-    while (strcmp(contact.name, contact_list->array[i].name) < 0 && i > 0) {
+    while (strcmp(contact.name, contact_list->array[i].name) > 0 && i > 0) {
 
         i--;
     }
@@ -46,12 +46,11 @@ int get_push_index(contactList * contact_list, Contact contact) {
 
 void add_sort(contactList * contact_list, Contact new_contact) {
 
-    
     if (!contact_list->array) {
 
         contact_list->capacity++;
 
-        contact_list = (Contact*) malloc(contact_list->capacity * sizeof(Contact));
+        contact_list->array = (Contact*) malloc(contact_list->capacity * sizeof(Contact));
 
         contact_list->array[0] = new_contact;
         contact_list->quantity++;
@@ -71,7 +70,7 @@ void add_sort(contactList * contact_list, Contact new_contact) {
     int index = contact_list->quantity;
     printf("\n%d", index);
 
-    while (index > 0 && strcmp(new_contact.name, contact_list->array[index].name) < 0) {
+    while (index > 0 && strcmp(new_contact.name, contact_list->array[index - 1].name) < 0) {
         contact_list->array[index] = contact_list->array[index - 1];
         index--;
     }
