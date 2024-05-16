@@ -17,7 +17,10 @@ int main() {
     while (1) 
     {
 
-        printf("\nType below the operation you'd like to perform.\n1. Add new contact\n2. Delete contact\n3. Search by first name\n4. Show data from all contacts\n5. Show name and phone from all contacts\n6. Exit application\n\nR: ");
+        printf("\n+======================= MENU =======================+\n\n");
+        printf("\n|                                                    |");
+        printf("\n|   Type below the operation you'd like to perform:  |");
+        printf("\n|1. Add new contact\n2. Delete contact\n3. Search by first name\n4. Show data from all contacts\n5. Show name and phone from all contacts\n6. Exit application\n\nR: ");
         scanf(" %d", &choice);
 
         switch (choice)
@@ -52,7 +55,7 @@ int main() {
 
         case 4:
 
-            printf("\n=== CONTACTS ===");
+            printf("\n\n=== CONTACTS ===");
 
             for (int i = 0; i < contact_list.quantity; i++) {
                 printf("\nName: %s", contact_list.array[i].name);
@@ -66,7 +69,7 @@ int main() {
 
         case 5:
 
-            printf("\n=== CONTACTS ===");
+            printf("\n\n=== CONTACTS ===");
 
             for (int i = 0; i < contact_list.quantity; i++) {
                 printf("\nName: %s", contact_list.array[i].name);
