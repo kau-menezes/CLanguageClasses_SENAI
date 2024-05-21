@@ -89,7 +89,7 @@ int main() {
 
         case 3:
 
-            printf("\n\n============== CONTACTS SEARCH ======================");
+            printf("\n\n============== CONTACTS SEARCH ======================\n");
             printf("\nType their first name: ");
             scanf("%s", name);
 
