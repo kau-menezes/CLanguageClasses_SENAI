@@ -46,4 +46,13 @@ void enqueue (NodeQueue *queue, int value)
     queue->size++; 
 }
 
+Node* dequeue (NodeQueue *queue)
+{
+    Node* aux = queue->head;
+    queue->head->next->previous = NULL;
+    queue->head = queue->head->next;
+
+    return aux;
+}
+
 #endif // !NODEQUEUE

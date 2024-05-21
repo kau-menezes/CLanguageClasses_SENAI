@@ -11,8 +11,7 @@ int main()
     NodeQueue queue = construct_queue();
     enqueue(&queue, 8);
     enqueue(&queue, 7);
-
-    int * ptr;
+    dequeue(&queue);
 
 
 }
