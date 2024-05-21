@@ -17,7 +17,7 @@ int main() {
     while (1) 
     {
 
-        printf("\n+====================== MENU ======================+");
+        printf("\n\n+====================== MENU ======================+");
         printf("\n|                                                  |");
         printf("\n|             Type below the operation             |");
         printf("\n|               you'd like to perform.             |");
@@ -50,48 +50,75 @@ int main() {
             Contact contact = construct_contact(name, phone, adress);
 
             add_sort(&contact_list, contact);
-            contact_list.quantity++;
 
-            printf("\nContact added.");
+            printf("\nContact added!");
             
             break;
         
         case 2:
 
-            printf("\nType below the numbre that corresponds to the contact you'd like to eliminate.\n\nR: ");
+            printf("\n\n============== CONTACT REMOVAL ======================");
+            printf("\nType below the corresponding number to the contact you'd like to eliminate.\n\n");
 
             for (int i = 0; i < contact_list.quantity; i++) {
-                printf("\n%d. %s - Phone: %s", i, contact_list.array[i],name, contact_list.array[i],phone);
+                printf("\n%d. %s \nPhone: %s", i, contact_list.array[i].name, contact_list.array[i].phone);
+                printf("\n------------------------------------------------------");
+
             }
+            printf("\n\nR: ");
             scanf("%d", &choice);
 
-            for (int i = choice; i < contact_list.quantity; i++) {
-                contact_list.array[i] = contact_list.array[i + 1];
+            if (choice>=0 && choice< contact_list.quantity - 1) 
+            {
+
+                for (int i = choice; i < contact_list.quantity; i++) {
+                    contact_list.array[i] = contact_list.array[i + 1];
+                }
+
+                contact_list.quantity--;
+                choice = NULL;
+
+                printf("\nContact eliminated. >:)\n");
+                break;
+
+            } else {
+
+                printf("\nContact unknown.");
+                break;
             }
-
-            contact_list.quantity--;
-
-            printf("\nContact eliminated. >:)\n");
-            break;
-
 
         case 3:
 
+            printf("\n\n============== CONTACTS SEARCH ======================");
             printf("\nType their first name: ");
             scanf("%s", name);
 
+            int found = 0;
+
             for (int i = 0; i < contact_list.quantity; i++) 
             {
-                if (strcmp(name, contact_list.array[i].name)) 
+                if (!strcmp(name, contact_list.array[i].name)) 
                 {
                     printf("\nName: %s", contact_list.array[i].name);
                     printf("\nPhone: %s", contact_list.array[i].phone);
+                    printf("\n------------------------------------------------------");
+                    found++;
                 }
+            }
+
+            if (found = 0) {
+                printf("\nNo contacts found under that name. :(");
             }
                 
             break;
 
         case 4:
+
+        if (contact_list.quantity == 0) 
+        {
+            printf("\nEmpty contact list, no contact to show.");
+            break;
+        }
 
             printf("\n\n====================== CONTACTS ======================");
 
@@ -100,7 +127,6 @@ int main() {
                 printf("\nName: %s", contact_list.array[i].name);
                 printf("\nPhone: %s", contact_list.array[i].phone);
                 printf("\nAdress: %s", contact_list.array[i].adress);
-
                 printf("\n------------------------------------------------------");
             }
 
@@ -108,12 +134,17 @@ int main() {
 
         case 5:
 
+            if (contact_list.quantity == 0) 
+            {
+            printf("\nEmpty contact list, no contact to show.");
+            break;
+            }
+
             printf("\n\n====================== CONTACTS ======================\n");
 
             for (int i = 0; i < contact_list.quantity; i++) {
                 printf("\nName: %s", contact_list.array[i].name);
                 printf("\nPhone: %s", contact_list.array[i].phone);
-
                 printf("\n------------------------------------------------------");
             }
 
