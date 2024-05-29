@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "node.h"
-#include "queue.h"
-#include "stack.h"
-#include "copy.h"
+#include "Estruturas/node.h"
+#include "Estruturas/queue.h"
+#include "Estruturas/stack.h"
+#include "Outras/copy.h"
 
 int main() 
 {

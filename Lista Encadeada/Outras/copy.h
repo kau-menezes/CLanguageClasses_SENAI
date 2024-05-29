@@ -4,9 +4,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "node.h"
-#include "queue.h"
-#include "stack.h" 
+#include "../Estruturas/node.h"
+#include "../Estruturas/queue.h"
+#include "../Estruturas/stack.h" 
 
 // PARA O EXERÍCIO 4
 int compare (int* array, NodeQueue* queue) {
