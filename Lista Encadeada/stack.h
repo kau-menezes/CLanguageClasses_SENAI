@@ -51,6 +51,11 @@ void pop(NodeStack* stack)
 
 }
 
+void peek (NodeStack* stack) 
+{
+    printf("\n%d", stack->tail->value);
+}
+
 void display_stack(NodeStack *stack) 
 {
 
@@ -65,7 +70,4 @@ void display_stack(NodeStack *stack)
     }
 
 }
-
-void peek () {}
-
 #endif // !NODESTACK
