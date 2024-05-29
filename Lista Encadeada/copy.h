@@ -1,10 +1,14 @@
 #ifndef COPY
 #define COPY
 
+#include <stdio.h>
+#include <stdlib.h>
+
 #include "node.h"
 #include "queue.h"
 #include "stack.h" 
 
+// PARA O EXERÍCIO 4
 int compare (int* array, NodeQueue* queue) {
 
     //  if ((sizeof(array)/sizeof(int)) != queue->size) 
@@ -33,5 +37,44 @@ int compare (int* array, NodeQueue* queue) {
     return 0;
 
 }
+
+// PARA O EXERCÍCIO 2
+
+int* linkedlist_to_array(NodeQueue* queue)
+{
+
+    int* array;
+
+    array = (int*) malloc(queue->size);
+
+    Node* aux;
+    aux = queue->head;
+
+    for (int i = 0; i < queue->size; i++) 
+    {
+        array[i] = aux->value;
+        aux = aux->next;
+    }
+
+    return array;
+
+}
+
+// PARA O EXERCÍCIO 3
+
+NodeQueue array_to_linkedlist(int* array, int size)
+{
+
+    NodeQueue newqueue = construct_queue();
+
+    for (int i = 0; i < size; i++)
+    {
+        enqueue(&newqueue, array[i]);
+    }
+
+    return newqueue;
+
+}
+
 
 #endif // !COPY

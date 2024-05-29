@@ -16,54 +16,103 @@ int main()
     // cira uma variável fila
     NodeQueue queue = construct_queue();
     NodeStack stack = construct_stack();
-    
-    int same_values[10];
-    int different_values[10];
-    int different_size[11];
 
     // adiciona na fila e pilha
     for (int i = 1; i < 11; i++) 
     {
         enqueue(&queue, i);
         push(&stack, i*2);
-        same_values[i - 1] = i;
-        different_values[i - 1] = i*2;
-        different_size[i - 1] = i;
     }
 
-    printf("%d", sizeof(same_values));
-
     // // mostra os valores
-    // display(&queue);
-    // display_stack(&stack);
+    printf("\n----------------------------\nVALORES INICIAIS:\n----------------------------\n ");
+    display(&queue);
+    printf("\n----------------------------");
+    display_stack(&stack);
 
     // // retira dois valores da fila e pilha
-    // // dequeue(&queue);
-    // // dequeue(&queue);
+    dequeue(&queue);
+    dequeue(&queue);
 
-    // pop(&stack);
-    // pop(&stack);
+    pop(&stack);
+    pop(&stack);
 
     // // mostra os valores
-    // display(&queue);
-    // printf("\n-----");
-    // for (size_t i = 0; i < 10; i++)
-    // {
-    //     printf("\n%d KKKKKK", array[i]);
-    // }
-    
-    // display_stack(&stack);
+    printf("\n----------------------------\nVALORES ATUALIZADOS:\n----------------------------\n ");
+    display(&queue);
+    printf("\n----------------------------");
+    display_stack(&stack);
 
     /*********************************************************
                             EXERCÍCIO 2
     *********************************************************/
+
+    printf("\n----------------------------\nARRAY CRIADO DE UMA LISTA ENCADEADA:\n----------------------------:\n ");
+
+   // instancia as estruturas
+    NodeQueue motherqueue =  construct_queue();
+    int* arrayoffspring;
+
+    // adiciona na fila os valores
+    for (int i = 1; i < 11; i++) 
+    {
+        enqueue(&motherqueue, i*2);
+    }
+
+    // atribui ao ponteiro array o ponteiro do novo array criado
+    arrayoffspring = linkedlist_to_array(&motherqueue);
+
+    // printa os valores do novo array
+
+    for(int i = 0; i < motherqueue.size; i++) 
+    {
+        printf("\n%d", arrayoffspring[i]);
+    }
+
+    /*********************************************************
+                            EXERCÍCIO 3
+    *********************************************************/
+
+    printf("\n----------------------------\nLISTA ENCADEADA DE UM ARRAY:\n----------------------------\n ");
+
+    NodeQueue queueoffspring = construct_queue();
+    int *motherarray;
+    int size = 5;
+
+    // aloca memória abseada no size
+    motherarray =  malloc(5 * sizeof(int));
+
+    // atribui valores ao array
+    for (int i = 0; i < size; i++) 
+    {
+        motherarray[i] = i+1 * 3;
+    }
+
+    // chama a função pra cuidar da tarefa
+    queueoffspring = array_to_linkedlist(motherarray, size);
+
+    // display
+    display(&queueoffspring);
+
+    /*********************************************************
+                            EXERCÍCIO 4
+    *********************************************************/
    
-    int retorno1 = compare(&same_values, &queue);
-    int retorno2 = compare(&different_values, &queue);
-    int retorno3 = compare(&different_size, &queue);
+    NodeQueue comparedqueue = construct_queue();
+    int same_values[10];
+    int different_values[10];
 
-    printf("\nRETORNO DA PRIMEIRA COMPARAÇÃO: %d - RETORNO DA SEGUNDA COMPARAÇÃO: %d - RETORNO DA TERCEIRA COMPARAÇÃO: %d", retorno1, retorno2, retorno3);
-    
+    for (int i = 1; i < 11; i++) 
+    {
+        enqueue(&comparedqueue, i);
+        same_values[i - 1] = i;
+        different_values[i - 1] = i * 2;
+    }
 
+    int equalcomparation = compare(&same_values, &comparedqueue);
+    int differentcomparation = compare(&different_values, &comparedqueue);
+
+
+    printf("\n\nRETORNO DA PRIMEIRA COMPARAÇÃO: %d\nRETORNO DA SEGUNDA COMPARAÇÃO: %d", equalcomparation, differentcomparation);
 
 }

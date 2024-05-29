@@ -50,6 +50,7 @@ Node* dequeue (NodeQueue *queue)
     Node* aux = queue->head;
     queue->head->next->previous = NULL;
     queue->head = queue->head->next;
+    queue->size--;
 
     return aux;
 }
@@ -59,13 +60,13 @@ void display(NodeQueue *queue)
 
     Node* aux;
     aux = queue->head;
-    printf("\n-------------");
 
     for (int i = 0; i < queue->size; i++) 
     {
         printf("\n%d", aux->value);
         aux = aux->next;
     }
+
 
 }
 

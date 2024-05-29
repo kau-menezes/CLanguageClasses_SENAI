@@ -61,7 +61,6 @@ void display_stack(NodeStack *stack)
 
     Node* aux;
     aux = stack->head;
-    printf("\n-------------");
 
     for (int i = 0; i < stack->size; i++) 
     {
