@@ -23,9 +23,48 @@ NodeStack construct_stack () {
     return newstack;
 }
 
-void push() {}
+void push(NodeStack* stack, int value)
+{
+    // chama o construtor da classe Node
+    Node *newnode = construct_node(value);
 
-void pop() {}
+    if (stack->head == NULL) 
+    {
+        stack->head = newnode;
+        stack->tail = newnode;
+        stack->size++;
+        return;
+    }
+
+    stack->tail->next = newnode;
+    newnode->previous = stack->tail;
+    stack->tail = newnode;
+    stack->size++; 
+}
+
+void pop(NodeStack* stack) 
+{
+
+    stack->size--;
+    stack->tail->previous->next = NULL;
+    stack->tail = stack->tail->previous;
+
+}
+
+void display_stack(NodeStack *stack) 
+{
+
+    Node* aux;
+    aux = stack->head;
+    printf("\n-------------");
+
+    for (int i = 0; i < stack->size; i++) 
+    {
+        printf("\n%d", aux->value);
+        aux = aux->next;
+    }
+
+}
 
 void peek () {}
 
