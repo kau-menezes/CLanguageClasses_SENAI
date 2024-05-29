@@ -30,7 +30,6 @@ void enqueue (NodeQueue *queue, int value)
 
     // chama o construtor da classe Node
     Node *newnode = construct_node(value);
-    printf("\nDEU BOA mais ou menos COLEGA %d", newnode->value);
 
     if (queue->head == NULL) 
     {
@@ -53,6 +52,21 @@ Node* dequeue (NodeQueue *queue)
     queue->head = queue->head->next;
 
     return aux;
+}
+
+void display(NodeQueue *queue) 
+{
+
+    Node* aux;
+    aux = queue->head;
+    printf("\n-------------");
+
+    for (int i = 0; i < queue->size; i++) 
+    {
+        printf("\n%d", aux->value);
+        aux = aux->next;
+    }
+
 }
 
 #endif // !NODEQUEUE

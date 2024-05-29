@@ -9,9 +9,19 @@ int main()
 {
     // cira uma variável fila
     NodeQueue queue = construct_queue();
-    enqueue(&queue, 8);
-    enqueue(&queue, 7);
+
+    for (int i = 1; i < 11; i++) 
+    {
+        enqueue(&queue, i);
+
+    }
+
+    display(&queue);
+
     dequeue(&queue);
+    dequeue(&queue);
+
+    display(&queue);
 
 
 }
